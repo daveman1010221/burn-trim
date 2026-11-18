@@ -15,7 +15,8 @@ Polar takes these crates with `[patch.crates-io]`, pinned by revision.
 | burn-dispatch | 0.22.1 | 64d255d7609901f7aaf2138b394a6fe8dd8c7b526d1ed2736ba2c643944028fa |
 | burn-signal | 0.22.1 | 3afcc7d0f8654ccf9529c9e93f21383b8828d4c784c0429966d2026698f72451 |
 
-The first commit is each crate exactly as its `.crate` file holds it; the second is the trim, and its diff is the whole
-change. Features are kept, emptied where they named a removed backend, so every crate that names them still resolves.
+The first commit is each crate exactly as its `.crate` file holds it; the trim follows, and its diff is the whole
+change: the manifests, and the two files cargo writes when it packages a crate (`Cargo.toml.orig`,
+`.cargo_vcs_info.json`), which it refuses to find in a git dependency's source when Nix vendors it. Features are kept, emptied where they named a removed backend, so every crate that names them still resolves.
 
 The code is burn's and cubecl's, under their licence: MIT or Apache-2.0, at your option.

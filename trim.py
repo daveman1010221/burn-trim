@@ -2,7 +2,9 @@
 
     python3 trim.py
 
-For each crate below, removes the named optional dependencies' tables and every feature entry that names them
+For each crate below, removes the two files cargo writes when it packages a crate and refuses to find there already
+(`Cargo.toml.orig`, `.cargo_vcs_info.json`; Nix vendors a git dependency by packaging it), then the named optional
+dependencies' tables and every feature entry that names them
 (`dep`, `dep:dep`, `dep/feature`, `dep?/feature`), keeping each feature, emptied if need be, so that every crate that
 names a feature still resolves. Run it on pristine published crates; the result is the manifest change, nothing else.
 """
@@ -45,6 +47,8 @@ def trim(text: str, deps: list[str]) -> str:
 
 
 for crate, deps in TRIM.items():
+    for reserved in ("Cargo.toml.orig", ".cargo_vcs_info.json"):
+        (pathlib.Path(crate) / reserved).unlink(missing_ok=True)
     path = pathlib.Path(crate) / "Cargo.toml"
     before = path.read_text()
     after = trim(before, deps)
