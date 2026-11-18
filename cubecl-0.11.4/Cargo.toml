@@ -40,40 +40,31 @@ resolver = "2"
 
 [features]
 autotune-checks = ["cubecl-runtime/autotune-checks"]
-cpu = ["cubecl-cpu"]
-cuda = ["cubecl-cuda"]
-cuda-cpp = ["cubecl-cuda?/cpp"]
-cuda-ptx-wmma = ["cubecl-cuda?/ptx-wmma"]
+cpu = []
+cuda = []
+cuda-cpp = []
+cuda-ptx-wmma = []
 default = [
     "std",
     "stdlib",
     "cubecl-core/default",
-    "cubecl-cuda?/default",
-    "cubecl-cpu?/default",
-    "cubecl-hip?/default",
     "cubecl-metal?/default",
     "cubecl-wgpu?/default",
 ]
 exclusive-memory-only = ["cubecl-wgpu?/exclusive-memory-only"]
-hip = ["cubecl-hip"]
-hip-cpp = ["cubecl-hip?/cpp"]
-hip-rocwmma = ["cubecl-hip?/rocwmma"]
+hip = []
+hip-cpp = []
+hip-rocwmma = []
 metal = ["wgpu-msl"]
 metal-native = ["cubecl-metal"]
 persistence = [
     "cubecl-runtime/persistence",
-    "cubecl-cpu?/persistence",
-    "cubecl-cuda?/persistence",
-    "cubecl-hip?/persistence",
     "cubecl-metal?/persistence",
     "cubecl-wgpu?/persistence",
 ]
 pliron-dump = [
-    "cubecl-cuda?/pliron-dump",
-    "cubecl-hip?/pliron-dump",
     "cubecl-metal?/pliron-dump",
     "cubecl-wgpu?/pliron-dump",
-    "cubecl-cpu?/pliron-dump",
 ]
 profile-tracy = [
     "cubecl-runtime/profile-tracy",
@@ -82,9 +73,6 @@ profile-tracy = [
 rocm = ["hip"]
 std = [
     "cubecl-core/std",
-    "cubecl-cpu?/std",
-    "cubecl-cuda?/std",
-    "cubecl-hip?/std",
     "cubecl-metal?/std",
     "cubecl-wgpu?/std",
 ]
@@ -94,9 +82,6 @@ test-runtime = ["wgpu"]
 tokio = ["cubecl-core/tokio"]
 tracing = [
     "cubecl-core/tracing",
-    "cubecl-cuda?/tracing",
-    "cubecl-cpu?/tracing",
-    "cubecl-hip?/tracing",
     "cubecl-wgpu?/tracing",
 ]
 vulkan = ["wgpu-spirv"]
@@ -119,23 +104,8 @@ path = "src/lib.rs"
 version = "0.11.4"
 default-features = false
 
-[dependencies.cubecl-cpu]
-version = "0.11.4"
-optional = true
-default-features = false
-
-[dependencies.cubecl-cuda]
-version = "0.11.4"
-optional = true
-default-features = false
-
 [dependencies.cubecl-environment]
 version = "0.11.4"
-default-features = false
-
-[dependencies.cubecl-hip]
-version = "0.11.4"
-optional = true
 default-features = false
 
 [dependencies.cubecl-ir]

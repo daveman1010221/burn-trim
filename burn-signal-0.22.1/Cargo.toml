@@ -122,7 +122,6 @@ std = [
 ]
 tch = [
     "burn-core/tch",
-    "burn-tch",
     "dep:tch",
 ]
 tracing = [
@@ -203,11 +202,6 @@ default-features = false
 
 [dependencies.burn-std]
 version = "0.22.1"
-default-features = false
-
-[dependencies.burn-tch]
-version = "0.22.1"
-optional = true
 default-features = false
 
 [dependencies.tch]

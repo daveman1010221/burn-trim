@@ -68,7 +68,6 @@ default = [
     "burn-cubecl?/default",
     "burn-flex?/default",
     "burn-ndarray?/default",
-    "burn-tch?/default",
 ]
 doc = [
     "default",
@@ -118,16 +117,14 @@ std = [
     "burn-cubecl?/std",
     "burn-flex?/std",
     "burn-ndarray?/std",
-    "burn-tch?/std",
 ]
-tch = ["burn-tch"]
+tch = []
 template = ["burn-cubecl?/template"]
 tracing = [
     "burn-autodiff?/tracing",
     "burn-cubecl?/tracing",
     "burn-flex?/tracing",
     "burn-ndarray?/tracing",
-    "burn-tch?/tracing",
 ]
 vulkan = [
     "wgpu",
@@ -183,11 +180,6 @@ default-features = false
 [dependencies.burn-remote]
 version = "0.22.1"
 features = ["client"]
-optional = true
-default-features = false
-
-[dependencies.burn-tch]
-version = "0.22.1"
 optional = true
 default-features = false
 
